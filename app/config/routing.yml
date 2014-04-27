@@ -1,0 +1,5 @@
+example_hello:
+    resource: "@ExampleHelloBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
