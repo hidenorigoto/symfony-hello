@@ -67,3 +67,19 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+jms_di_extra:
+    locations:
+        all_bundles: false
+        bundles: [ExampleHelloBundle]
+        directories: [%kernel.root_dir%/../src]
+    automatic_controller_injections:
+        properties:
+            request:       @request
+            router:        @router
+            session:       @session
+            translator:    @translator
+            entityManager: @doctrine.orm.entity_manager
+            formFactory:   @form.factory
+        method_calls:
+            setRouter: [@router]

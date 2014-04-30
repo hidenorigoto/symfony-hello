@@ -37,4 +37,17 @@ use Doctrine\ORM\EntityRepository;
 
 class RentalRepository extends EntityRepository
 {
+    public function countFor(Member $member)
+    {
+        $query = $this->createQueryBuilder('r')
+            ->select('count(rd.id) as data_count')
+            ->leftJoin('r.RentalDetails', 'rd')
+            ->where('r.Member = :member')
+            ->setParameters(
+                ['member' => $member->getId()]
+            )
+            ->getQuery();
+
+        return $query->getSingleScalarResult();
+    }
 }

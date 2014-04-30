@@ -35,12 +35,14 @@ namespace Example\HelloBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use PHPMentors\ValidatorBundle\Validator\Constraints\ServiceCallback;
 
 /**
  * Member
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Example\HelloBundle\Entity\MemberRepository")
+ * @ServiceCallback(service="example.hello_bundle.entity.specification.rental_limit",method="isSatisfiedBy")
  */
 class Member
 {

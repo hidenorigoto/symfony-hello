@@ -21,3 +21,41 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+services:
+  entity_manager:
+    synthetic: true
+
+  example.hello.member.repository:
+    class: Example\HelloBundle\Entity\MemberRepository
+    factory_service: entity_manager
+    factory_method:  getRepository
+    arguments:
+      - Example\HelloBundle\Entity\Member
+
+  example.hello.rental.repository:
+    class: Example\HelloBundle\Entity\RentalRepository
+    factory_service: entity_manager
+    factory_method:  getRepository
+    arguments:
+      - Example\HelloBundle\Entity\Rental
+
+  example.hello.rentaldetail.repository:
+    class: Example\HelloBundle\Entity\RentalDetailRepository
+    factory_service: entity_manager
+    factory_method:  getRepository
+    arguments:
+      - Example\HelloBundle\Entity\RentalDetail
+
+  example.hello.stock.repository:
+    class: Example\HelloBundle\Entity\StockRepository
+    factory_service: entity_manager
+    factory_method:  getRepository
+    arguments:
+      - Example\HelloBundle\Entity\Stock
+
+  example.hello.title.repository:
+    class: Example\HelloBundle\Entity\TitleRepository
+    factory_service: entity_manager
+    factory_method:  getRepository
+    arguments:
+      - Example\HelloBundle\Entity\Title

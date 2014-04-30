@@ -37,4 +37,10 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class ExampleHelloBundle extends Bundle
 {
+    public function boot()
+    {
+        $this->container->set('entity_manager',
+            $this->container->get('doctrine')->getManager()
+        );
+    }
 }
